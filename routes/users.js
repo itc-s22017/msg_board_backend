@@ -40,7 +40,7 @@ router.post("/signup", async (req, res, next) => {
     }
 })
 
-router.post('/login', passport.authenticate('local', {keepSessionInfo: true}), (req, res, next) => {
+router.post('/login', (req, res, next) => {
     passport.authenticate('local', { keepSessionInfo: true,failWithError:true }, (err, user, info) => {
         if (err) {
             return next(err);
